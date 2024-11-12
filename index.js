@@ -40,6 +40,11 @@ app.get("/ip", (req, res) => {
     res.send({ ip });
 });
 
+// add a new route to check the health of the server
+app.get("/health", (req, res) => {
+    res.send({ status: "OK" });
+});
+
 app.listen(PORT, () => {
     const ip = getLocalIpAddress();
     console.log(`Server running at http://${ip}:${PORT}`);
