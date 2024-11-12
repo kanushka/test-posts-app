@@ -34,6 +34,12 @@ function getLocalIpAddress() {
     return "localhost";
 }
 
+// add a new route to get the local ip address
+app.get("/ip", (req, res) => {
+    const ip = getLocalIpAddress();
+    res.send({ ip });
+});
+
 app.listen(PORT, () => {
     const ip = getLocalIpAddress();
     console.log(`Server running at http://${ip}:${PORT}`);
